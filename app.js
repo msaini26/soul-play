@@ -97,9 +97,9 @@ app.listen(port, () => {
 
 })();
 
-const menuBtn = document.querySelector('.btn-menu');
+/*const menuBtn = document.querySelector('.btn-menu');
 menuBtn.addEventListener('click', toggleMenu);
 
 function toggleMenu() {
     console.log("this works");
-}
+}*/
