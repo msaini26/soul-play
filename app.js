@@ -12,35 +12,12 @@ const authClient = new google.auth.JWT(
     credentials.private_key.replace(/\\n/g, "\n"), ["https://www.googleapis.com/auth/spreadsheets"]
 );
 
-// linking HTML (if possible put in separate server.js later)
-var express = require('express');
-var app = express();
-var path = require('path');
-
-// viewed at http://localhost:8080
-app.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname + '/public/index.html'));
-});
-app.listen(8080);
-
-/*
-const express = require('express');
+// static link to .html and .css in public directory
+const express = require("express");
 const app = express();
-const port = 3000;
-
-app.set('view engine', 'ejs');
-
-app.use(express.static('public'));
-
-app.get('/', (req, res) => {
-    res.render('index');
-})
-
-app.listen(port, () => {
-    console.log('App listening on port' + port);
-
-});*/
-
+//app.use(express.static(__dirname));
+app.use(express.static("public"));
+app.listen(8080);
 
 (async function() {
     try {
