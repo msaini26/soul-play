@@ -166,25 +166,6 @@ section {
     }
 }
 
-.bulb {
-    opacity: 0;
-    position: absolute;
-    right: 10%;
-    top: 50%;
-    transform: translateY(-50%);
-    animation: fadeIn 1s linear forwards;
-    animation-delay: 6s;
-    z-index: 100;
-}
-
-.sci {
-    position: absolute;
-    bottom: 15px;
-    right: 30px;
-    display: flex;
-    flex-direction: column;
-}
-
 .sci li {
     opacity: 0;
     list-style: none;
@@ -330,7 +311,7 @@ section {
 
 /* Small rectangle #2 */
 
-#element2 {
+#sqre2 {
     opacity: 0;
     position: absolute;
     left: -10px;
@@ -354,12 +335,12 @@ section {
     position: absolute;
     left: -10px;
     top: 20%;
-    left: 90%;
+    left: 80%;
     width: 50px;
     height: 50px;
     border: 2px solid #000;
     animation: rotate 30s linear infinite, fadeIn 1s linear forwards;
-    animation-delay: 4s;
+    animation-delay: 7s;
 }
 
 
