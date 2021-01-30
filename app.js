@@ -13,27 +13,16 @@ const authClient = new google.auth.JWT(
     ["https://www.googleapis.com/auth/spreadsheets"]
 );
 
-// link to HTML
-// const express = require('express');
-// const app = new express();
-
-// app.get('/', function(request, response){
-//     response.sendFile('public/index1.html' , { root : __dirname});
-// });
-
-
+// linking HTML (if possible put in separate server.js later)
 var express = require('express');
-var app = express.createServer();
+var app = express();
+var path = require('path');
 
-app.use(express.staticProvider(__dirname + '/public'));
-
+// viewed at http://localhost:8080
 app.get('/', function(req, res) {
-    res.render(index);
+    res.sendFile(path.join(__dirname + '/public/index.html'));
 });
-
-//app.register('.html', require('jade'));
-
-app.listen(8080, '127.0.0.1')
+app.listen(8080);
 
 
 (async function () {
