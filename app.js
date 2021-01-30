@@ -9,8 +9,7 @@ const credentials = require("./credentials.json");
 const authClient = new google.auth.JWT(
     credentials.client_email,
     null,
-    credentials.private_key.replace(/\\n/g, "\n"),
-    ["https://www.googleapis.com/auth/spreadsheets"]
+    credentials.private_key.replace(/\\n/g, "\n"), ["https://www.googleapis.com/auth/spreadsheets"]
 );
 
 // linking HTML (if possible put in separate server.js later)
@@ -25,7 +24,7 @@ app.get('/', function(req, res) {
 app.listen(8080);
 
 
-(async function () {
+(async function() {
     try {
 
         // Authorize the client
@@ -59,11 +58,11 @@ app.listen(8080);
             }
 
         } else {
-            console.log("No data found.");  
+            console.log("No data found.");
         }
 
         // Saved the answers
-        fs.writeFileSync("answers.json", JSON.stringify(answers), function (err, file) {
+        fs.writeFileSync("answers.json", JSON.stringify(answers), function(err, file) {
             if (err) throw err;
             console.log("Saved!");
         });
