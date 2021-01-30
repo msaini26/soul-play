@@ -1,5 +1,8 @@
 # hoya-hacks-2021
 
+## Usage
+To run our Node application, download the directory and run the command "node app.js" in a CL-interface. Then visit localhost:8080 in your browser to interact with the webpage. 
+
 ## Inspiration
 
 ## What it does
