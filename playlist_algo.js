@@ -7,7 +7,8 @@ const MOODS = ["Angry", "Happy", "Confused", "Nothing"];
 const SLEEPLVLS = ["<1", "2-4", "5-7", "8-10", ">10"];
 const GENRES = ["Rock", "Pop", "Metal", "Indie", "Hip Hop"];
 
-// 15 playlists, 3 for each genre
+// 15 playlists, 3 for each genre (i.e. sad, chill, happy)
+// embed spotify code for playlist on html
 
 var score = 0;
 var playlistType;

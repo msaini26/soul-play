@@ -12,41 +12,31 @@ const authClient = new google.auth.JWT(
     credentials.private_key.replace(/\\n/g, "\n"), ["https://www.googleapis.com/auth/spreadsheets"]
 );
 
-// // static link to .html and .css in public directory
+// // // static link to .html and .css in public directory
+// const express = require("express");
+// const app = express();
+// app.use(express.static(__dirname));
+// app.use(express.static("public"));
+// app.listen(8080);
+
 const express = require("express");
 const app = express();
-app.use(express.static(__dirname));
-app.use(express.static("public"));
-app.listen(8080);
+const path = require("path");
+const router = express.Router();
 
-// const path = require("path");
-// const router = express.Router();
-// var cons = require('consolidate');
+app.set("view engine", "pug");
+app.set("views", path.join(__dirname, "views"));
 
-// // view engine setup
-// app.engine('html', cons.swig)
-// // app.set('view engine', 'html');
-// app.set("view engine", "pug");
-// app.set('views', path.join(__dirname, 'views'));
+router.get("/", (req, res) => {
+    res.render("index");
+});
 
+router.get("/about", (req, res) => {
+    res.render("about", { title: "Hey", message: "Hello there!" });
+});
 
-// // app.set("views", path.join(__dirname, "views"));
-
-// router.get("/", (req, res) => {
-//   res.render("index.html");
-// });
-
-// router.get("/message", (req, res) => {
-//   res.render("about", { title: "Hey", message: "Hello there!" });
-// });
-
-// app.use("/", router);
-// app.listen(process.env.port || 3000);
-
-
-
-
-
+app.use("/", router);
+app.listen(process.env.port || 3000);
 
 (async function () {
     try {
@@ -78,8 +68,8 @@ app.listen(8080);
 
             // For each row
             for (const row of rows) {
-                answers.push({ 
-                    timeStamp: row[0], 
+                answers.push({
+                    timeStamp: row[0],
                     feeling: row[1],
                     energy: row[2],
                     connection: row[3],
@@ -87,7 +77,7 @@ app.listen(8080);
                     mood: row[5],
                     genre: row[6],
                     sleepQuality: row[7]
-                 });
+                });
             }
 
         } else {
@@ -113,10 +103,3 @@ app.listen(8080);
     }
 
 })();
-
-/*const menuBtn = document.querySelector('.btn-menu');
-menuBtn.addEventListener('click', toggleMenu);
-
-function toggleMenu() {
-    console.log("this works");
-}*/
