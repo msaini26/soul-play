@@ -31,11 +31,14 @@
             <div>
                 <h2>Welcome to SoulPlay</h2><br>
                 <h3>We are here for you</h3>
-                <p>This site analyzes your mental health in relation to lockdown stress and provides you with a mood-booster playlist. To get started, fill out the form below!</p>
-                <a class="typeform-share button" href="https://form.typeform.com/to/YPBN9ifC?typeform-medium=embed-snippet" data-mode="popup" style="display:inline-block;text-decoration:none;background-color:#000000;color:white;cursor:pointer;font-family:Helvetica,Arial,sans-serif;font-size:20px;line-height:50px;text-align:center;margin:0;height:50px;padding:0px 33px;border-radius:4px;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:bold;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;"
+                <p>This site analyzes your mental health in relation to lockdown stress and provides you with a
+                    mood-booster playlist. To get started, fill out the form below!</p>
+                <a class="typeform-share button"
+                    href="https://form.typeform.com/to/YPBN9ifC?typeform-medium=embed-snippet" data-mode="popup"
+                    style="display:inline-block;text-decoration:none;background-color:#000000;color:white;cursor:pointer;font-family:Helvetica,Arial,sans-serif;font-size:20px;line-height:50px;text-align:center;margin:0;height:50px;padding:0px 33px;border-radius:4px;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:bold;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;"
                     data-size="100" target="_blank">Start Form </a>
                 <script>
-                    (function() {
+                    (function () {
                         var qs, js, q, s, d = document,
                             gi = d.getElementById,
                             ce = d.createElement,
@@ -51,8 +54,26 @@
                         }
                     })()
                 </script>
-            </div>
+                <p>Check out your custom playlist recommendation:</p>
+                <button id="get-playlist"
+                    style="display:inline-block;text-decoration:none;background-color:#000000;color:white;cursor:pointer;font-family:Helvetica,Arial,sans-serif;font-size:20px;line-height:50px;text-align:center;margin:0;height:50px;padding:0px 33px;border-radius:4px;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:bold;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;"
+                    data-mode="popup"
+                    data-size="100" target="_blank" onClick="getPlaylist()">Get the playlist</button>
 
+
+                <iframe id="playlist" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX59NCqCqJtoH" width="300"
+                    height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"
+                    style="padding:10ch; display:none;"></iframe>
+
+
+                <script>
+                    function getPlaylist() {
+                        var pl = document.getElementById("playlist");
+                        pl.style = 'display:block';
+                    }
+                </script>
+
+            </div>
             <div class="element1"></div>
             <div class="element2"></div>
             <div class="element3"></div>

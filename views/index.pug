@@ -2,7 +2,7 @@ doctype html
 html(lang="en")
     head
         style
-             include ./style.css
+            include ./style.css
         meta( charset="utf-8")
         meta( name="viewport" content="width=device-width, initial-scale=1")
         title SoulPlay
@@ -14,4 +14,27 @@ html(lang="en")
         section
             .header
                 h2.class#id(name="logo") SoulPlay Logo
+                a(href='/index')
+                    img(src="/logo.jpg")
+                ul
+                    li
+                        a(class="active" href='/index') Home
+            .bannerText
+                h2 Welcome to SoulPlay
+                h3 We are here for you
+                p This site analyzes your mental health in relation to lockdown stress and provides you with a mood-booster playlist. To get started, fill out the form below!
+                a( 
+                    class="typeform-share button"
+                    href="https://form.typeform.com/to/YPBN9ifC?typeform-medium=embed-snippet"
+                    data-mode="popup"
+                    style="display:inline-block;text-decoration:none;background-color:#000000;color:white;cursor:pointer;font-family:Helvetica,Arial,sans-serif;font-size:20px;line-height:50px;text-align:center;margin:0;height:50px;padding:0px 33px;border-radius:4px;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:bold;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;"
+                    data-size="100"
+                    target="_blank") Start Form
+                script !{form}
+
+                .element1
+                .element2
+                .element3
+        
                 
+

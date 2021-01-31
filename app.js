@@ -12,31 +12,54 @@ const authClient = new google.auth.JWT(
     credentials.private_key.replace(/\\n/g, "\n"), ["https://www.googleapis.com/auth/spreadsheets"]
 );
 
-// // // static link to .html and .css in public directory
-// const express = require("express");
-// const app = express();
-// app.use(express.static(__dirname));
-// app.use(express.static("public"));
-// app.listen(8080);
-
+// static link to .html and .css in public directory
 const express = require("express");
 const app = express();
-const path = require("path");
-const router = express.Router();
+app.use(express.static(__dirname));
+app.use(express.static("public"));
+app.listen(8080);
 
-app.set("view engine", "pug");
-app.set("views", path.join(__dirname, "views"));
+// const express = require("express");
+// const app = express();
+// const path = require("path");
+// const router = express.Router();
 
-router.get("/", (req, res) => {
-    res.render("index");
+// app.set("view engine", "pug");
+// app.set("views", path.join(__dirname, "views"));
+
+// router.get("/", (req, res) => {
+//     res.render("index");
+// });
+
+// router.get("/about", (req, res) => {
+//     res.render("about", { title: "Hey", message: "Hello there!" });
+// });
+
+// app.use("/", router);
+// app.listen(process.env.port || 3000);
+
+
+
+function form() {
+    var qs, js, q, s, d = document,
+        gi = d.getElementById,
+        ce = d.createElement,
+        gt = d.getElementsByTagName,
+        id = "typef_orm_share",
+        b = "https://embed.typeform.com/";
+    if (!gi.call(d, id)) {
+        js = ce.call(d, "script");
+        js.id = id;
+        js.src = b + "embed.js";
+        q = gt.call(d, "script")[0];
+        q.parentNode.insertBefore(js, q)
+    }
+}
+
+app.get("/", (req, res) => {
+    res.render("index", { form: form });
 });
 
-router.get("/about", (req, res) => {
-    res.render("about", { title: "Hey", message: "Hello there!" });
-});
-
-app.use("/", router);
-app.listen(process.env.port || 3000);
 
 (async function () {
     try {
