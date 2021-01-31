@@ -53,14 +53,23 @@
                             q.parentNode.insertBefore(js, q)
                         }
                     })()
-                   
+
                 </script>
                 <p>Check out your custom playlist recommendation:</p>
-                <button id="get-playlist"
-                    style="display:inline-block;text-decoration:none;background-color:#000000;color:white;cursor:pointer;font-family:Helvetica,Arial,sans-serif;font-size:20px;line-height:50px;text-align:center;margin:0;height:50px;padding:0px 33px;border-radius:4px;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:bold;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;"
-                    data-mode="popup"
-                    data-size="100" target="_blank" onClick="getPlaylist()">Get the playlist</button>
 
+                <a class="get-playlist"
+                    style="display:inline-block;text-decoration:none;background-color:#000000;color:white;cursor:pointer;font-family:Helvetica,Arial,sans-serif;font-size:20px;line-height:50px;text-align:center;margin:0;height:50px;padding:0px 33px;border-radius:4px;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:bold;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;"
+                    data-mode="popup" data-size="100" target="_blank" onClick="getPlaylist()">Get the playlist</a>
+
+                <script type='text/javascript'>
+                    function expandToWindow(element) {
+                        var margin = 10;
+
+                        if (element.style.height < window.innerHeight) {
+                            element.style.height = window.innerHeight - (2 * margin)
+                        }
+                    }
+                </script>
 
                 <iframe id="playlist" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX59NCqCqJtoH" width="300"
                     height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"
@@ -70,6 +79,11 @@
                 <script>
                     function getPlaylist() {
                         var pl = document.getElementById("playlist");
+                        var margin = 10;
+
+                        if (pl.style.height < window.innerHeight) {
+                            pl.style.height = window.innerHeight - (2 * margin)
+                        }
                         pl.style = 'display:block';
                     }
                 </script>
