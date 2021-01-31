@@ -12,14 +12,43 @@ const authClient = new google.auth.JWT(
     credentials.private_key.replace(/\\n/g, "\n"), ["https://www.googleapis.com/auth/spreadsheets"]
 );
 
-// static link to .html and .css in public directory
+// // static link to .html and .css in public directory
 const express = require("express");
 const app = express();
-//app.use(express.static(__dirname));
+app.use(express.static(__dirname));
 app.use(express.static("public"));
 app.listen(8080);
 
-(async function() {
+// const path = require("path");
+// const router = express.Router();
+// var cons = require('consolidate');
+
+// // view engine setup
+// app.engine('html', cons.swig)
+// // app.set('view engine', 'html');
+// app.set("view engine", "pug");
+// app.set('views', path.join(__dirname, 'views'));
+
+
+// // app.set("views", path.join(__dirname, "views"));
+
+// router.get("/", (req, res) => {
+//   res.render("index.html");
+// });
+
+// router.get("/message", (req, res) => {
+//   res.render("about", { title: "Hey", message: "Hello there!" });
+// });
+
+// app.use("/", router);
+// app.listen(process.env.port || 3000);
+
+
+
+
+
+
+(async function () {
     try {
 
         // Authorize the client
@@ -32,7 +61,7 @@ app.listen(8080);
         const res = await service.spreadsheets.values.get({
             auth: authClient,
             spreadsheetId: "1u6y1GHeFSDJhfe67v_xjNNqVDSj0pU7yE_tihHK9uRA",
-            range: "A:D",
+            range: "A:H",
         });
 
         // All of the answers
@@ -49,7 +78,16 @@ app.listen(8080);
 
             // For each row
             for (const row of rows) {
-                answers.push({ timeStamp: row[0], answer: row[1] });
+                answers.push({ 
+                    timeStamp: row[0], 
+                    feeling: row[1],
+                    energy: row[2],
+                    connection: row[3],
+                    sleep: row[4],
+                    mood: row[5],
+                    genre: row[6],
+                    sleepQuality: row[7]
+                 });
             }
 
         } else {
@@ -57,10 +95,12 @@ app.listen(8080);
         }
 
         // Saved the answers
-        fs.writeFileSync("answers.json", JSON.stringify(answers), function(err, file) {
+        fs.writeFileSync("answers.json", JSON.stringify(answers), function (err, file) {
             if (err) throw err;
             console.log("Saved!");
         });
+
+        exports.answers = answers; // trying to export to playlist_algo.js
 
     } catch (error) {
 
