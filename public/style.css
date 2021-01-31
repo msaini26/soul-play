@@ -1,4 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700&display=swap');
+#logo {
+    width: 23%;
+    padding-top: 2%;
+    height: auto;
+}
+
 body {
     margin: 0;
     padding: 0;
